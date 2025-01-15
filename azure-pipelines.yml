@@ -16,14 +16,15 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    cd employeeApp/
     npm install -g @angular/cli
     npm install
     ng build --configuration=production
   displayName: 'npm install and build'
 - task: PublishBuildArtifacts@1
   inputs:
-   PathtoPublish: '/employeeAppData/employeeApp/dist'
-   ArtifactName: '/employeeAppData/employeeApp/dist'
+   PathtoPublish: 'employeeApp/dist'
+   ArtifactName: 'employeeApp/dist'
 
 - task: ArchiveFiles@2
   displayName: 'Archive Files'
